@@ -3,6 +3,14 @@ import { MapContainer, TileLayer, Marker, useMapEvents, Popup } from "react-leaf
 import "leaflet/dist/leaflet.css";
 import DenunciaForm from "./DenunciaForm";
 import { UserContext } from "../context/UserContext";
+import L from "leaflet";
+
+// Configura los íconos de Leaflet para que usen los de /public/leaflet/
+L.Icon.Default.mergeOptions({
+  iconUrl: '/leaflet/marker-icon.png',
+  iconRetinaUrl: '/leaflet/marker-icon-2x.png',
+  shadowUrl: '/leaflet/marker-shadow.png',
+});
 
 export default function MapaPrincipal({ onSalir = () => {} }) {
   const { logout, user } = useContext(UserContext);
